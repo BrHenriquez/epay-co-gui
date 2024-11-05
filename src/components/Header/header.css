@@ -1,0 +1,11 @@
+.header-logo {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.header {
+    background: #000;
+    display: flex;
+    width: 100%;
+    max-height: 60px;
+}

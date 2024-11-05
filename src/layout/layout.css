@@ -1,0 +1,18 @@
+.root-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100dvw;
+    min-height: 100vh;
+}
+
+.layout-content {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.outlet {
+    display: flex;
+    padding: 10px 20px;
+    width: 100%;
+}
