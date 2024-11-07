@@ -143,7 +143,7 @@ const HomePage = () => {
                                                                 <Delete cursor="pointer" sx={{ color: 'red' }} />
                                                             </ListItemIcon>
                                                             <ListItemText>
-                                                                Delete customer
+                                                                Delete client
                                                             </ListItemText>
                                                         </MenuItem>
                                                     </MenuList>

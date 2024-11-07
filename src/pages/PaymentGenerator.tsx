@@ -18,6 +18,7 @@ const PaymentGenerator = () => {
         isSuccess: boolean,
         codeVerified: boolean,
         paymentError?: string,
+        codeValidationError?: string,
     }>({ isLoading: false, isSuccess: false, codeVerified: false })
     const [sessionId, setSessionId] = useState<string>('');
     const navigate = useNavigate();
@@ -73,7 +74,11 @@ const PaymentGenerator = () => {
                 setFormState((prev) => ({ ...prev, codeVerified: true }))
             }
         } catch (error) {
-            console.error(error)
+            if (isAxiosError(error) && error?.response) {
+                setFormState((prev) => ({ ...prev, isLoading: false, codeValidationError: error.response?.data.error }))
+            } else {
+                console.error(error);
+            }
         } finally {
             setFormState((prev) => ({ ...prev, isLoading: false }))
         }
@@ -144,6 +149,7 @@ const PaymentGenerator = () => {
                                     placeholder='XXXXXX'
                                     onChange={(e) => handleVerificationCode(e.target.value)}
                                 />
+                                {formState.codeValidationError ? <Alert severity='error'>{formState.codeValidationError} </Alert> : null}
                                 <Button
                                     btType='secondary'
                                     fullWidth
