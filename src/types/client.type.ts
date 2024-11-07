@@ -2,13 +2,16 @@ export interface IClient {
     name: string;
     balance: number | undefined;
     document: string;
-    phone: string | number;
+    phone: string;
     email: string;
-    sessionsTokens?: SessionToken[]
+    _id: string;
+    balanceHistory: BalanceHistory[]
 }
 
-export type SessionToken = {
-    sessionId: string;
-    token: string;
-    expiresAt: string;
+export type BalanceHistory = {
+    amount: number;
+    balance: number;
+    date: string;
+    _id: string;
+    type: 'income' | 'expense'
 }

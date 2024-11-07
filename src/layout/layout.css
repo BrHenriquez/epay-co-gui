@@ -7,12 +7,6 @@
 
 .layout-content {
     display: flex;
-    flex-direction: row;
-    height: 100%;
-}
-
-.outlet {
-    display: flex;
-    padding: 10px 20px;
-    width: 100%;
+    justify-content: center;
+    min-height: calc(100dvh - 60px);
 }

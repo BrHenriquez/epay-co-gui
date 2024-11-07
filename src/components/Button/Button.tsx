@@ -1,4 +1,5 @@
-import { Button as MuiButton, ButtonProps } from '@mui/material';
+import { Button as MuiButton, ButtonProps, CircularProgress } from '@mui/material';
+import colors from '../../utils/colors';
 
 interface IButtonProps extends ButtonProps {
     isLoading?: boolean
@@ -7,16 +8,16 @@ interface IButtonProps extends ButtonProps {
 
 const Button = (props: IButtonProps) => {
     const colorScheme = {
-        backGround: '#fb631d',
+        backGround: colors.primary,
         color: '#fff',
-        hover: "#000"
+        hover: colors.secondary
     }
 
     if (props?.btType === 'secondary') {
-        colorScheme.backGround = '#000'
+        colorScheme.backGround = colors.secondary
         colorScheme.color = '#fff'
-        colorScheme.hover = '#fb631d'
-    } 
+        colorScheme.hover = colors.primary
+    }
 
     return (
         <MuiButton
@@ -31,7 +32,7 @@ const Button = (props: IButtonProps) => {
                 ...(props?.sx ? props.sx : {})
             }}
         >
-            {props.children}
+            {!props?.isLoading ? props.children : <CircularProgress size={25} sx={{ color: 'white' }} />}
         </MuiButton >
     )
 }

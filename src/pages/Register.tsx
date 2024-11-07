@@ -72,9 +72,9 @@ const Register = () => {
     };
 
     return (
-        <Box>
-            <Typography variant="h4">Register a new client</Typography>
-            <Paper sx={{ width: 600, display: 'flex', padding: 3 }}>
+        <Box sx={(theme) => ({ padding: 1, display: 'flex', alignItems: theme.breakpoints.up('sm') ? 'center' : 'flex-start' })}>
+            <Paper sx={{ maxWidth: 600, width: '100%', display: 'flex', padding: 3, flexDirection: 'column', gap: 1 }}>
+                <Typography variant="h4" align='center'>Register a new client</Typography>
                 <form onSubmit={handleSubmit}>
                     <Grid2 container spacing={2}>
                         <Grid2 size={12}>

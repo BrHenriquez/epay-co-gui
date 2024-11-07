@@ -29,9 +29,12 @@ export const httpService = () => {
     const get = (url: string) => instance.get(url).then((response) => response?.data);
 
     const post = (url: string, options = {}) => instance.post(url, options).then((response) => response.data);
+    
+    const _delete = (url: string, options = {}) => instance.delete(url, options).then((response) => response.data);
 
     return {
         get,
         post,
+        _delete,
     };
 };
